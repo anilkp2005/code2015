@@ -1,0 +1,62 @@
+<ion-view title="Child Care Centre Details">
+
+    <!--<ion-nav-buttons side="left">-->
+        <!--<button menu-toggle="left" class="button button-icon icon ion-navicon"></button>-->
+    <!--</ion-nav-buttons>-->
+
+    <!--class="has-header width-control"-->
+
+    <ion-content has-header="false" padding="false" ng-controller="odh1ChildCareDetailsPageController">
+
+        <div class="list card">
+            <div class="item item-body">
+                <h2>{{ccLocation.lm_name}}</h2>
+                <p>Category : {{ccLocation.category}}</p>
+                <p>Type : {{ccLocation.cc_type}}</p>
+            </div>
+            <div class="item item-body">
+                <p>
+                <pre><strong>{{ccLocation.str_addr}}</strong></pre>
+                <pre><strong>{{ccLocation.mun}}</strong></pre>
+                <pre><strong>{{ccLocation.postal}}</strong></pre>
+                </p>
+                <p><strong>Website: <a href="url:{{ccLocation.website}}">{{ccLocation.website}}</a></strong></p>
+
+                <a class="button icon-left ion-ios7-telephone button-calm button-outline" ng-href="tel: {{ccLocation.phone}}">Phone No: {{ccLocation.phone}}</a>
+
+                <div id="map" data-tap-disabled="true"></div>
+
+            </div>
+        </div>
+    </ion-content>
+
+<!--
+Object {category: "Social Services", cc_type: "Community-Based Commercial Centre", ccid: 4,
+fdk_year: "0", latitude: "43.68060965"…}$$hashKey: "00J"
+category: "Social Services
+"cc_type: "Community-Based Commercial Centre"ccid: 4fdk_year: "0"latitude: "43.68060965"lm_id: "CC-OTH-154"
+lm_name: "Absolute Angels"lm_type: "Child Care (Other)"longitude: "-79.82567346"mun: "Brampton"
+phone: "(905) 970 0415"postal: "L7A 0W9"pr: "Ontario"ropadrid: "201681"sda_cat: "Child Care Centre"sdaname12: "B032"
+str_addr: "222 Salvation Rd"unit: " "wardnum: "6"website: "http://peel.cioc.ca/record/CDR0430?UseCICVw=54&Number=0"
+    -->
+
+    <!--<ion-content class="has-header">-->
+    <!--<div class="uniquelist">-->
+    <!--<div class="list card">-->
+    <!--<div class="item item-body">-->
+    <!--<h2>{{ccLocation.lm_name}}</h2>-->
+    <!--<p>Category : {{ccLocation.category}}</p>-->
+    <!--</div>-->
+    <!--<div class="item item-body">			-->
+    <!--<img class="full-image" src="{{deal.deal_imagepath}}" width="100%" ng-if="deal.deal_imagepath!='img/noimage/no-image.png'">-->
+    <!--<img src="img/noimage/noimageinside.jpg" height="1px" ng-if="deal.deal_imagepath=='img/noimage/no-image.png'">										-->
+    <!--<p><pre>{{deal.deal_description}}</pre></p>-->
+    <!--<p><strong>Location : {{deal.deal_location}}</strong></p>-->
+    <!--<p><pre><strong>{{deal.deal_address}}</strong></pre></p>	                -->
+    <!--<p><strong>Phone No : {{deal.deal_phone}} </strong></p>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--<!--<div class="bottom-fixed-bar"><img src="img/home_icon/bottom.jpg"></div>-->-->
+    <!--</ion-content>-->
+</ion-view>

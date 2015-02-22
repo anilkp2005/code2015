@@ -1,0 +1,66 @@
+<ion-view title="Child Care Centers" hide-back-button="false">
+
+    <!--<ion-nav-buttons side="left">-->
+        <!--<button menu-toggle="left" class="button button-icon icon ion-navicon" ></button>-->
+    <!--</ion-nav-buttons>-->
+
+    <ion-nav-buttons side="right">
+        <button class="button button-icon icon icon ion-ios7-information right" ng-click="data.showInfo = !data.showInfo"></button>
+        <button class="button button-icon icon icon ion-pie-graph right" ng-click="showCCGraph = !showCCGraph"></button>
+    </ion-nav-buttons>
+
+    <ion-content class="has-header width-control" has-header="true" padding="false  ">
+
+        <div class="list padding">
+            <div class="bar bar-header item-input-inset">
+                <ion-search placeholder="Search (by daycare name, postal Code, city, address, phone number)" filter="search" ></ion-search>
+            </div>
+
+            <div ng-show="showCCGraph" >
+                <ion-slide-box  active-slide="1">
+                    <ion-slide>
+                            <img src="img/chart_areachart_cc.png" width="100%">
+                    </ion-slide>
+                    <ion-slide>
+                            <img src="img/chart_barcchart_cc.png" width="100%">
+                    </ion-slide>
+                    <ion-slide>
+                            <img src="img/chart_piechart_cc.png" width="100%">
+                    </ion-slide>
+                </ion-slide-box>
+                <p class="extra-left" >
+                </p>
+            </div>
+
+                <a class="item item-content item-icon-right item-text-wrap"
+                   ng-repeat="ccDataDayCares in apiDataDayCares | filter:search.value"
+                   type="item-text-wrap"
+                   href="#/odh1/childcareDetails/{{ccDataDayCares.ccid}}">
+                <span class="extra-color-left odh1-orange" ></span>
+
+                <span class="extra-left">{{ccDataDayCares.lm_name}}</span>
+
+                <p class="extra-left" ng-show="data.showInfo">
+                    Address: {{ccDataDayCares.str_addr}}
+                    <br>
+                    Phone: {{ccDataDayCares.phone}}
+                    <br>
+                    City: {{ccDataDayCares.mun}}
+                    <br>
+                    Postal Code: {{ccDataDayCares.postal}}
+                </p>
+
+                <i class="icon ion-chevron-right icon-accessory"></i>
+                </a>
+
+
+            <!--</div>-->
+        </div>
+
+        <!--Div that will hold the pie chart-->
+        <div id="chart_div"></div>
+
+
+    </ion-content>
+
+</ion-view>

@@ -1,0 +1,42 @@
+<ion-view hide-back-button="false" title="Nutrient Values" >
+
+    <ion-nav-buttons side="right">
+        <button class="button button-icon icon ion-ios7-information-outline right" ng-click="data.showInfo = !data.showInfo"></button>
+    </ion-nav-buttons>
+
+    <!--<ion-nav-buttons side="left">-->
+        <!--<button menu-toggle="left" class="button button-icon icon ion-navicon" ></button>-->
+    <!--</ion-nav-buttons>-->
+
+    <ion-content class="has-header width-control" has-header="true" padding="false  ">
+
+        <div class="list padding">
+            <div class="bar bar-header item-input-inset">
+                <ion-search placeholder="Search (by Nutrient Types, Values)" filter="search" ></ion-search>
+            </div>
+
+            <a class="item item-content item-icon-right item-text-wrap"
+               ng-repeat="ccNutrientType in apiNutrientValues | filter:search.value"
+               type="item-text-wrap"
+               href="#/odh1/nutrientDetails/{{ccNutrientType.nvid}}">
+                <span class="extra-color-left odh1-orange" ></span>
+
+                <span class="extra-left">{{ccNutrientType.foodname}}</span>
+                <p class="extra-left" ng-show="data.showInfo">
+                    Weight Measure: {{ccNutrientType.measure_weight_g}}
+                    <br>
+                    Energy: {{ccNutrientType.energy_kcal}}kcal
+                    <br>
+                    Protein: {{ccNutrientType.protein_g}}g
+                    <br>
+                    Carbohydrate: {{ccNutrientType.carbohydrate_g}}g
+                    <br>
+                    Sugar: {{ccNutrientType.total_sugar_g}}g
+                </p>
+                <i class="icon ion-chevron-right icon-accessory"></i>
+            </a>
+        </div>
+
+    </ion-content>
+
+</ion-view>
