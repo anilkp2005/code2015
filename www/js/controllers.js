@@ -126,6 +126,42 @@ myApp.controller('NavController', function($scope, $ionicSideMenuDelegate,$state
     })
 
     .controller('odh1BmiPageController', function($scope, $ionicSideMenuDelegate, $http, $ionicLoading, $rootScope) {
+        $ionicLoading.show({
+            template: 'loading'
+        })
+        //get data only if null
+        if  ($rootScope.flagNPCompanyData)
+        {
+            $ionicLoading.hide();
+        }
+        else
+        {
+            $http.get($rootScope.urlapi + "/api/approved_natural_product_companies").success(function(data) {
+                    $ionicLoading.hide();
+                    $rootScope.flagNPCompanyData = true;
+                    $rootScope.apiNPCompanyValues = data.objects;
+                    console.log($rootScope.apiNPCompanyValues);
+                }
+            )
+        }
+    })
+
+    .controller('odh1companyProductDetailsPageController', function($stateParams,$scope, $ionicSideMenuDelegate, $http, $ionicLoading, $rootScope) {
+
+        console.log('from odh1companyProductDetailsPageController');
+        console.log('$rootScope.urlapi + "/api/approved_natural_products/100002');
+
+        $ionicLoading.show({
+            template: 'loading'
+        })
+        //get data only if null
+        $http.get($rootScope.urlapi + "/api/approved_natural_products/100002").success(function(data)  {
+                    $ionicLoading.hide();
+                    $rootScope.flagNPCompanyData = true;
+                    $rootScope.apiNPCompanyValues = data;
+                    console.log($rootScope.apiNPCompanyValues);
+                }
+            )
     })
 
 

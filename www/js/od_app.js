@@ -102,6 +102,17 @@ angular.module('demo', ['ionic', 'demo.controllers'])
                     }
                 }
             })
+
+            .state('odh1.companyProductDetails', {
+                url: "/companyProductDetails/:npCompanyId",
+                views: {
+                    'odh1' :{
+                        templateUrl: "templates/odh1/odh1-companyProductDetails.html",
+                        controller:'odh1companyProductDetailsPageController'
+                    }
+                }
+            })
+
             .state('odh1.nutrient', {
                 url: '/nutrient',
                 views: {

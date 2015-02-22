@@ -1,0 +1,71 @@
+<ion-view title="Company Product List" hide-back-button="false">
+
+    <!--<ion-nav-buttons side="left">-->
+    <!--<button menu-toggle="left" class="button button-icon icon ion-navicon" ></button>-->
+    <!--</ion-nav-buttons>-->
+
+    <ion-content class="has-header width-control" has-header="true" padding="false  ">
+
+        <div class="list padding">
+            <div class="bar bar-header item-input-inset">
+                <ion-search placeholder="Search (by company name, province)" filter="search" ></ion-search>
+            </div>
+
+            <a class="item item-content item-text-wrap"
+               ng-repeat="npCompany in apiNPCompanyProducts | filter:search.value"
+               type="item-text-wrap"
+              >
+                <span class="extra-color-left odh1-orange" ></span>
+
+                <span class="extra-left">{{npCompany.productname}}</span>
+
+                <p class="extra-left" ng-show="data.showInfo">
+                    Address: {{npCompany.address}}
+                    <br>
+                    City: {{npCompany.city}}
+                    <br>
+                    Province: {{npCompany.province}}
+                    <br>
+                    Country: {{npCompany.country}}
+                    <br>
+                    Postal Code: {{npCompany.postalcode}}
+                </p>
+
+                <i class="icon ion-chevron-right icon-accessory"></i>
+            </a>
+
+
+            <!--</div>-->
+        </div>
+
+        <!--Div that will hold the pie chart-->
+        <div id="chart_div"></div>
+
+
+    </ion-content>
+
+</ion-view>
+
+<!--<a class="item item-content item-icon-right item-text-wrap"-->
+   <!--ng-repeat="npCompany in apiNPCompanyProducts | filter:search.value"-->
+   <!--type="item-text-wrap"-->
+   <!--href="#/odh1/bmiDetails/{{npCompany.productname}}">-->
+    <!--<span class="extra-color-left odh1-orange" ></span>-->
+
+    <!--<span class="extra-left">{{npCompany.productname}}</span>-->
+
+    <!--<p class="extra-left" ng-show="data.showInfo">-->
+        <!--Address: {{npCompany.address}}-->
+        <!--<br>-->
+        <!--City: {{npCompany.city}}-->
+        <!--<br>-->
+        <!--Province: {{npCompany.province}}-->
+        <!--<br>-->
+        <!--Country: {{npCompany.country}}-->
+        <!--<br>-->
+        <!--Postal Code: {{npCompany.postalcode}}-->
+    <!--</p>-->
+
+    <!--<i class="icon ion-chevron-right icon-accessory"></i>-->
+<!--</a>-->
+
